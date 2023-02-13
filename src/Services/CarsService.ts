@@ -1,10 +1,10 @@
-import Cars from '../Domains/Cars';
+import Car from '../Domains/Car';
 import CarsModel from '../Models/CarsModel';
 import ICar from '../Interfaces/ICar';
 
 class CarsService {
-  private createCarDomain(car: ICar & { id?: string }): Cars {
-    return new Cars({
+  private createCarDomain(car: ICar & { id?: string }): Car {
+    return new Car({
       id: car.id,
       model: car.model,
       year: car.year,

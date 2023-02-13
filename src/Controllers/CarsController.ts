@@ -17,7 +17,7 @@ class CarsController {
 
   async createCar() {
     const { model, year, color, status, buyValue, doorsQty, seatsQty } = this.req.body;
-    const statusFinal = status !== undefined ? status : false;
+    const statusFinal = status !== undefined ? JSON.parse(status) : false;
 
     const newCar: ICar = {
       model,
