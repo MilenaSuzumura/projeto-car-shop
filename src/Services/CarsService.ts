@@ -23,6 +23,18 @@ class CarsService {
       return this.createCarDomain(newCar);
     }
   }
+
+  async getAll() {
+    const carsModel = new CarsModel();
+    const getAll = await carsModel.getAll();
+    return Promise.all(getAll.map((car) => this.createCarDomain(car)));
+  }
+
+  async getById(id: string) {
+    const carsModel = new CarsModel();
+    const getById = await carsModel.getById(id);
+    if (getById !== null) return this.createCarDomain(getById);
+  }
 }
 
 export default CarsService;

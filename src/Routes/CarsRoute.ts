@@ -8,9 +8,14 @@ carRoute.post(
   (req, res, next) => new CarsController(req, res, next).createCar(),
 );
 
-/* routes.post(
-  '/transfer',
-  (req, res, next) => new TransferController(req, res, next).create(),
-); */
+carRoute.get(
+  '/',
+  (req, res, next) => new CarsController(req, res, next),
+);
+
+carRoute.get(
+  '/:id',
+  (req, res, next) => new CarsController(req, res, next),
+);
 
 export default carRoute;
