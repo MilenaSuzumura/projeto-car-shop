@@ -21,7 +21,7 @@ class CarsModel {
       doorsQty: { type: Number, required: true },
       seatsQty: { type: Number, required: true },
     });
-    this.model = models.Payment || model('Car', this.schema);
+    this.model = models.Payment || model('Cars', this.schema);
   }
 
   public async create(car: ICar): Promise<ICar> {
