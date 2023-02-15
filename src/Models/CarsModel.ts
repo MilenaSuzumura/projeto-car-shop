@@ -28,7 +28,7 @@ class CarsModel {
     return this.model.create({ ...car });
   }
 
-  public async getAll(): Promise<Array<ICar>> {
+  public async getAll(): Promise<Array<ICar | null>> {
     return this.model.find();
   }
 

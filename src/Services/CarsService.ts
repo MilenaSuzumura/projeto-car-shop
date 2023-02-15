@@ -28,7 +28,7 @@ class CarsService {
     const carsModel = new CarsModel();
     const getAll = await carsModel.getAll();
     if (getAll !== null) {
-      const result = await Promise.all(getAll.map((car) => this.createCarDomain(car)));
+      const result = await Promise.all(getAll.map((car) => this.createCarDomain(car as ICar)));
       return {
         status: 200,
         result,
