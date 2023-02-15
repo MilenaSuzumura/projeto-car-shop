@@ -21,7 +21,7 @@ class CarsModel {
       doorsQty: { type: Number, required: true },
       seatsQty: { type: Number, required: true },
     });
-    this.model = models.Payment || model('Cars', this.schema);
+    this.model = models.Payment || model('Car', this.schema);
   }
 
   public async create(car: ICar): Promise<ICar> {
@@ -29,7 +29,7 @@ class CarsModel {
   }
 
   public async getAll(): Promise<Array<ICar>> {
-    return this.model.find({});
+    return this.model.find();
   }
 
   public async getById(id: string): Promise<ICar | null> {
