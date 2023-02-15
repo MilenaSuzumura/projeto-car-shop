@@ -41,7 +41,7 @@ class CarsController {
   async getById() {
     const { id } = this.req.params;
     const cars = await this.service.getById(id);
-    return this.res.status(200).json(cars);
+    return this.res.status(cars.status).json(cars.result);
   }
 }
 
