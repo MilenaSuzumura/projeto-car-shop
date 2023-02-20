@@ -3,7 +3,7 @@ import CarsModel from '../Models/CarsModel';
 import ICar from '../Interfaces/ICar';
 
 class CarsService {
-  private createCarDomain(car: ICar & { id?: string }): Car {
+  private createCarDomain(car: ICar): Car {
     return new Car({
       id: car.id,
       model: car.model,
@@ -44,7 +44,7 @@ class CarsService {
   async getById(id: string) {
     const carsModel = new CarsModel();
     const getById = await carsModel.getById(id);
-    if (getById !== null) {
+    if (typeof getById !== 'object') {
       return { 
         status: 200,
         result: this.createCarDomain(getById),

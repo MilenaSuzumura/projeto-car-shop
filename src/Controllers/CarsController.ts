@@ -35,7 +35,7 @@ class CarsController {
 
   async getAll() {
     const allCars = await this.service.getAll();
-    return this.res.status(200).json(allCars);
+    return this.res.status(allCars.status).json(allCars.result);
   }
 
   async getById() {

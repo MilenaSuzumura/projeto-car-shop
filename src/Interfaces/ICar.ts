@@ -1,4 +1,5 @@
 export default interface ICAR {
+  id?: string,
   model: string,
   year: number,
   color: string,

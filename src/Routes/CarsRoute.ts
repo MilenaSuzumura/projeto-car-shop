@@ -4,18 +4,18 @@ import CarsController from '../Controllers/CarsController';
 const carRoute = Router();
 
 carRoute.post(
-  '/',
+  '/cars',
   (req, res, next) => new CarsController(req, res, next).createCar(),
 );
 
 carRoute.get(
-  '/',
-  (req, res, next) => new CarsController(req, res, next).getAll(),
+  '/cars/:id',
+  (req, res, next) => new CarsController(req, res, next).getById(),
 );
 
 carRoute.get(
-  '/:id',
-  (req, res, next) => new CarsController(req, res, next).getById(),
+  '/cars',
+  (req, res, next) => new CarsController(req, res, next).getAll(),
 );
 
 export default carRoute;

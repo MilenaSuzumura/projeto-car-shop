@@ -10,7 +10,7 @@ class Car {
   private doorsQty: number;
   private seatsQty: number;
 
-  constructor(car: ICar & { id?: string }) {
+  constructor(car: ICar) {
     this.id = car.id;
     this.model = car.model;
     this.year = car.year;
