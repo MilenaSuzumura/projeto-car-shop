@@ -1,5 +1,5 @@
 import Car from '../Domains/Car';
-import CarsModel from '../Models/CarsModel';
+import CarsODM from '../Models/CarsODM';
 import ICar from '../Interfaces/ICar';
 
 class CarsService {
@@ -18,14 +18,14 @@ class CarsService {
 
   async createCar(car: ICar) {
     if (car !== undefined) {
-      const carsModel = new CarsModel();
+      const carsModel = new CarsODM();
       const newCar = await carsModel.create(car);
       return this.createCarDomain(newCar);
     }
   }
 
   async getAll() {
-    const carsModel = new CarsModel();
+    const carsModel = new CarsODM();
     const getAll = await carsModel.getAll();
     if (getAll !== null) {
       const result = await Promise.all(getAll.map((car) => this.createCarDomain(car as ICar)));
@@ -42,7 +42,7 @@ class CarsService {
   }
 
   async getById(id: string) {
-    const carsModel = new CarsModel();
+    const carsModel = new CarsODM();
     const getById = await carsModel.getById(id);
     if (typeof getById !== 'object') {
       return { 

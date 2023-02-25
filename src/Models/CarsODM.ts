@@ -7,7 +7,7 @@ import {
 
 import ICar from '../Interfaces/ICar';
 
-class CarsModel {
+class CarsODM {
   private schema: Schema;
   private model: Model<ICar>;
 
@@ -21,7 +21,7 @@ class CarsModel {
       doorsQty: { type: Number, required: true },
       seatsQty: { type: Number, required: true },
     });
-    this.model = models.Payment || model('car', this.schema);
+    this.model = models.Car || model('car', this.schema);
   }
 
   public async create(car: ICar): Promise<ICar> {
@@ -37,4 +37,4 @@ class CarsModel {
   }
 }
 
-export default CarsModel;
+export default CarsODM;
