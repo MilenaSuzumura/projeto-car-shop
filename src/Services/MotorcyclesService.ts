@@ -37,7 +37,7 @@ class MotorcyclesService {
 
     return {
       status: 404,
-      result: { message: 'Car not found' },
+      result: { message: 'Motorcycle not found' },
     };
   }
 
