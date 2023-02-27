@@ -1,13 +1,12 @@
-import IVehicle from "../Interfaces/IVehicle";
+import IVehicle from '../Interfaces/IVehicle';
 
 class Vehicle {
-    public id: string | undefined;
-    public status: boolean | undefined;
-    protected model: string;
-    protected year: number;
-    protected color: string;
-    protected buyValue: number;
-  
+  public id: string | undefined;
+  public status: boolean | undefined;
+  protected model: string;
+  protected year: number;
+  protected color: string;
+  protected buyValue: number;
 
   constructor(vehicle: IVehicle) {
     this.id = vehicle.id;
