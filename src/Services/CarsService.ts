@@ -20,7 +20,6 @@ class CarsService {
 
   async createCar(car: ICar) {
     if (car !== undefined) {
-
       const newCar = await this.carsModel.create(car);
       return this.createCarDomain(newCar);
     }
