@@ -34,12 +34,14 @@ class CarsController {
   }
 
   async getAll() {
+    console.log('entrou no getAll');
     const allCars = await this.service.getAll();
     return this.res.status(allCars.status).json(allCars.result);
   }
 
   async getById() {
     const { id } = this.req.params;
+    console.log(id);
     const cars = await this.service.getById(id);
     return this.res.status(cars.status).json(cars.result);
   }

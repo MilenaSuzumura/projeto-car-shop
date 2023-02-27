@@ -27,7 +27,7 @@ class MotorcyclesService {
 
   async getAll() {
     const getAll = await this.motorcyclesModel.getAll();
-    if (getAll !== null) {
+    if (getAll.length !== 0) {
       const result = getAll.map((moto) => this.createMotoDomain(moto as IMotorcycle));
       return {
         status: 200,
@@ -43,7 +43,7 @@ class MotorcyclesService {
 
   async getById(id: string) {
     const getById = await this.motorcyclesModel.getById(id);
-    if (typeof getById !== 'object') {
+    if (getById !== null) {
       return { 
         status: 200,
         result: this.createMotoDomain(getById),
