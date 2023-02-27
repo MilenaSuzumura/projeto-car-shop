@@ -43,6 +43,24 @@ class CarsController {
     const cars = await this.service.getById(id);
     return this.res.status(cars.status).json(cars.result);
   }
+
+  async update() {
+    const { model, year, color, status, buyValue, doorsQty, seatsQty } = this.req.body;
+    const statusFinal = status !== undefined ? JSON.parse(status) : false;
+    const { id } = this.req.params;
+    const newInfo: ICar = {
+      model,
+      year,
+      color,
+      status: statusFinal,
+      buyValue,
+      doorsQty,
+      seatsQty,
+    };
+
+    const cars = await this.service.update(id, newInfo);
+    return this.res.status(200).json(cars);
+  }
 }
 
 export default CarsController;

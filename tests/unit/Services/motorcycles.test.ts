@@ -40,7 +40,7 @@ describe('Testa o MotorcyclesService', function () {
     expect(result).to.be.deep.equal(motoOutput);
   });
 
-/*   it('Testa se getAll retorna todas as motos', async function () {
+  it('Testa se getAll retorna todas as motos', async function () {
     const motoList = [{
       id: '63319d80feb9f483ee823ac5',
       model: 'deasdaqs',
@@ -48,15 +48,15 @@ describe('Testa o MotorcyclesService', function () {
       color: 'green',
       status: true,
       buyValue: 12,
-      doorsQty: 1,
-      seatsQty: 1,
+      category: '5sakdaskd',
+      engineCapacity: 2,
     }];
 
     sinon.stub(Model, 'find').resolves(motoList);
   
     const service = new MotorcyclesService();
     const result = await service.getAll();
-    expect(result.result).to.be.deep.equal(carList);
+    expect(result.result).to.be.deep.equal(motoList);
   });
 
   it('Testa se o getAll não encontra nenhum carro', async function () {
@@ -66,6 +66,7 @@ describe('Testa o MotorcyclesService', function () {
     const result = await service.getAll();
     expect(result.result).to.be.deep.equal({ message: 'Car not found' });
   });
+/*   
 
   it('Testa se o getById encontra o Id', async function () {
     const carOutput: Car = new Car({

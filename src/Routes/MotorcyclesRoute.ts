@@ -9,8 +9,13 @@ motoRoute.post(
 );
 
 motoRoute.get(
+  '/:id',
+  (req, res, next) => new MotorcyclesController(req, res, next).getById(),
+);
+
+motoRoute.get(
   '/',
-  (req, res, next) => new MotorcyclesController(req, res, next).createMoto(),
+  (req, res, next) => new MotorcyclesController(req, res, next).getAll(),
 );
 
 export default motoRoute;

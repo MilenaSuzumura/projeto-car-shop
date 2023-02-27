@@ -56,9 +56,10 @@ class CarsService {
     };
   }
 
-/*   async update(id: string, car: ICar) {
+  async update(id: string, car: ICar) {
     const getById = await this.carsModel.update(id, car);
-  } */
+    return getById;
+  }
 }
 
 export default CarsService;
