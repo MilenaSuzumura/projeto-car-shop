@@ -55,6 +55,10 @@ class CarsService {
       result: { message: 'Invalid mongo id' },
     };
   }
+
+  async update(id: string, car: ICar) {
+    const getById = await this.carsModel.update(id, car);
+  }
 }
 
 export default CarsService;
