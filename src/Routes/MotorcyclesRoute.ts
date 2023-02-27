@@ -11,6 +11,6 @@ motoRoute.post(
 motoRoute.get(
   '/',
   (req, res, next) => new MotorcyclesController(req, res, next).createMoto(),
-)
+);
 
 export default motoRoute;

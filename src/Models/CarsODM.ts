@@ -1,8 +1,5 @@
 import {
-  Model,
   Schema,
-  model,
-  models,
 } from 'mongoose';
 
 import ICar from '../Interfaces/ICar';

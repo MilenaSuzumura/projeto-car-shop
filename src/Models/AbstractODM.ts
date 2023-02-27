@@ -24,7 +24,6 @@ class AbstractODM<T> {
     return this.model.find();
   }
 
-    
   public async getById(id: string): Promise<T | null> {
     return this.model.findById(id);
   }

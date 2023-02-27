@@ -3,7 +3,6 @@ import CarsController from '../Controllers/CarsController';
 
 const carRoute = Router();
 
-
 carRoute.get(
   '/',
   (req, res, next) => new CarsController(req, res, next).getAll(),
