@@ -3,6 +3,8 @@ import CarsODM from '../Models/CarsODM';
 import ICar from '../Interfaces/ICar';
 
 class CarsService {
+  carsModel = new CarsODM();
+
   private createCarDomain(car: ICar): Car {
     return new Car({
       id: car.id,
@@ -18,17 +20,16 @@ class CarsService {
 
   async createCar(car: ICar) {
     if (car !== undefined) {
-      const carsModel = new CarsODM();
-      const newCar = await carsModel.create(car);
+
+      const newCar = await this.carsModel.create(car);
       return this.createCarDomain(newCar);
     }
   }
 
   async getAll() {
-    const carsModel = new CarsODM();
-    const getAll = await carsModel.getAll();
+    const getAll = await this.carsModel.getAll();
     if (getAll !== null) {
-      const result = await Promise.all(getAll.map((car) => this.createCarDomain(car as ICar)));
+      const result = getAll.map((car) => this.createCarDomain(car as ICar));
       return {
         status: 200,
         result,
@@ -42,8 +43,7 @@ class CarsService {
   }
 
   async getById(id: string) {
-    const carsModel = new CarsODM();
-    const getById = await carsModel.getById(id);
+    const getById = await this.carsModel.getById(id);
     if (typeof getById !== 'object') {
       return { 
         status: 200,

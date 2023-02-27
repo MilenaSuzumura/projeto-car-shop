@@ -32,6 +32,17 @@ class MotorcyclesController {
     const create = await this.service.createMoto(newCar);
     return this.res.status(201).json(create);
   }
+
+  async getAll() {
+    const allMoto = await this.service.getAll();
+    return this.res.status(allMoto.status).json(allMoto.result);
+  }
+
+  async getById() {
+    const { id } = this.req.params;
+    const moto = await this.service.getById(id);
+    return this.res.status(moto.status).json(moto.result);
+  }
 }
 
 export default MotorcyclesController;

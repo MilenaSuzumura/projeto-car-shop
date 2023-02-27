@@ -4,7 +4,7 @@ import motoRoute from './Routes/MotorcyclesRoute';
 
 const app = express();
 app.use(express.json());
-app.use(carRoute);
+app.use('/cars', carRoute);
 app.use('/motorcycles', motoRoute);
 
 export default app;
