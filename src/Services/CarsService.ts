@@ -1,3 +1,4 @@
+import { isValidObjectId } from 'mongoose';
 import Car from '../Domains/Car';
 import CarsODM from '../Models/CarsODM';
 import ICar from '../Interfaces/ICar';
@@ -27,21 +28,21 @@ class CarsService {
 
   async getAll() {
     const getAll = await this.carsModel.getAll();
-    if (getAll !== undefined) {
-      const result = getAll.map((car) => this.createCarDomain(car as ICar));
-      return {
-        status: 200,
-        result,
-      };
-    }
-
+    const result = getAll.map((car) => this.createCarDomain(car as ICar));
     return {
-      status: 404,
-      result: { message: 'Car not found' },
+      status: 200,
+      result,
     };
   }
 
   async getById(id: string) {
+    if (!isValidObjectId(id)) {
+      return {
+        status: 404,
+        esult: { message: 'Car not found' },
+      };
+    }
+
     const getById = await this.carsModel.getById(id);
     if (getById !== null) {
       return { 
