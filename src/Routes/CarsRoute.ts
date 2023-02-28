@@ -13,10 +13,10 @@ carRoute.get(
   (req, res, next) => new CarsController(req, res, next).getAll(),
 );
 
-/* carRoute.get(
+carRoute.get(
   '/:id',
   (req, res, next) => new CarsController(req, res, next).getById(),
-); */
+);
 
 carRoute.post(
   '/',
