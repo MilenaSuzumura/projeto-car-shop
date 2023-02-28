@@ -51,7 +51,7 @@ class CarsService {
     }
 
     return {
-      status: 404,
+      status: 422,
       result: { message: 'Invalid mongo id' },
     };
   }
