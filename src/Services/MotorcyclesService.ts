@@ -38,7 +38,7 @@ class MotorcyclesService {
   async getById(id: string) {
     if (!isValidObjectId(id)) {
       return {
-        status: 404,
+        status: 422,
         result: { message: 'Invalid mongo id' },
       };
     }

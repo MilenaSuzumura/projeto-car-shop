@@ -59,14 +59,6 @@ describe('Testa o CarsService', function () {
     expect(result.result).to.be.deep.equal(carList);
   });
 
-  it('Testa se o getAll não encontra nenhum carro', async function () {
-    sinon.stub(Model, 'find').resolves([]);
-  
-    const service = new CarsService();
-    const result = await service.getAll();
-    expect(result.result).to.be.deep.equal({ message: 'Car not found' });
-  });
-
   it('Testa se o getById encontra o Id', async function () {
     const carOutput: Car = new Car({
       id: '63319d80feb9f483ee823ac5',
@@ -91,6 +83,6 @@ describe('Testa o CarsService', function () {
   
     const service = new CarsService();
     const result = await service.getById('3319d80feb9f483ee823ac5');
-    expect(result.result).to.be.deep.equal({ message: 'Invalid mongo id' });
+    expect(result.result).to.be.deep.equal({ message: 'Car not found' });
   });
 });

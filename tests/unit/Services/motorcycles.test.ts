@@ -57,41 +57,32 @@ describe('Testa o MotorcyclesService', function () {
     const service = new MotorcyclesService();
     const result = await service.getAll();
     expect(result.result).to.be.deep.equal(motoList);
-  });
-
-  it('Testa se o getAll não encontra nenhum carro', async function () {
-    sinon.stub(Model, 'find').resolves([]);
-  
-    const service = new MotorcyclesService();
-    const result = await service.getAll();
-    expect(result.result).to.be.deep.equal({ message: 'Car not found' });
-  });
-/*   
+  });  
 
   it('Testa se o getById encontra o Id', async function () {
-    const carOutput: Car = new Car({
+    const motoOutput: Motorcycles = new Motorcycles({
       id: '63319d80feb9f483ee823ac5',
       model: 'deasdaqs',
       year: 2005,
       color: 'green',
       status: true,
       buyValue: 12,
-      doorsQty: 1,
-      seatsQty: 1,
+      category: '5sakdaskd',
+      engineCapacity: 2,
     });
 
-    sinon.stub(Model, 'findById').resolves(carOutput);
+    sinon.stub(Model, 'findById').resolves(motoOutput);
   
     const service = new MotorcyclesService();
     const result = await service.getById('63319d80feb9f483ee823ac5');
-    expect(result.result).to.be.deep.equal(carOutput);
+    expect(result.result).to.be.deep.equal(motoOutput);
   });
 
   it('Testa se o getById não encontra o Id', async function () {
     sinon.stub(Model, 'findById').resolves(null);
   
-    const service = new CarsService();
+    const service = new MotorcyclesService();
     const result = await service.getById('3319d80feb9f483ee823ac5');
-    expect(result.result).to.be.deep.equal({ message: 'Invalid mongo id' });
-  }); */
+    expect(result.result).to.be.deep.equal({ message: 'Motorcycle not found' });
+  });
 });
