@@ -83,6 +83,6 @@ describe('Testa o CarsService', function () {
   
     const service = new CarsService();
     const result = await service.getById('3319d80feb9f483ee823ac5');
-    expect(result.result).to.be.deep.equal({ message: 'Car not found' });
+    expect(result.result).to.be.deep.equal({ message: 'Invalid mongo id' });
   });
 });

@@ -83,6 +83,6 @@ describe('Testa o MotorcyclesService', function () {
   
     const service = new MotorcyclesService();
     const result = await service.getById('3319d80feb9f483ee823ac5');
-    expect(result.result).to.be.deep.equal({ message: 'Motorcycle not found' });
+    expect(result.result).to.be.deep.equal({ message: 'Invalid mongo id' });
   });
 });
