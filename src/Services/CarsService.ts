@@ -38,8 +38,8 @@ class CarsService {
   async getById(id: string) {
     if (!isValidObjectId(id)) {
       return {
-        status: 404,
-        esult: { message: 'Car not found' },
+        status: 422,
+        result: { message: 'Invalid mongo id' },
       };
     }
 
@@ -52,8 +52,8 @@ class CarsService {
     }
 
     return {
-      status: 422,
-      result: { message: 'Invalid mongo id' },
+      status: 404,
+      result: { message: 'Car not found' },
     };
   }
 
