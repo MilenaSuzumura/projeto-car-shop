@@ -27,7 +27,7 @@ class CarsService {
 
   async getAll() {
     const getAll = await this.carsModel.getAll();
-    if (getAll.length !== 0) {
+    if (getAll !== undefined) {
       const result = getAll.map((car) => this.createCarDomain(car as ICar));
       return {
         status: 200,
@@ -37,7 +37,7 @@ class CarsService {
 
     return {
       status: 404,
-      result: 'Car not found',
+      result: { message: 'Car not found' },
     };
   }
 
