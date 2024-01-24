@@ -1,4 +1,6 @@
-<!-- # Trybers And Dragons
+# Car Shop
+
+<!-- 
 
 Trybers And Dragons é um projeto focado em construir raças, arquétipos, personagens, entre outros; para treinar os pilares da Programação Orientada a Objetos(Herança, Abstração, Encapsulamento e Polimorfismo) e os princípios SOLID utilizando Typescript. 
 
